@@ -1,0 +1,18 @@
+language: none
+
+branches:
+  only:
+    - master
+
+build:
+  ci:
+    - git remote set-url origin git@github.com:justin8/netdata-stack.git
+    # Update armhf branch
+    - git checkout armhf
+    - git rebase origin/master
+    - GIT_SSH_COMMAND="ssh -i /tmp/ssh/shippablenetdatastackdeploykey" git push -f
+
+integrations:
+  key:
+    - integrationName: shippable-netdata-stack-deploy-key
+      type: ssh-key
