@@ -12,3 +12,4 @@ services:
     volumes:
       - "/proc:/host/proc:ro"
       - "/sys:/host/sys:ro"
+      - "./netdata.conf:/etc/netdata/netdata.conf:ro"
